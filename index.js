@@ -1,20 +1,10 @@
 const express = require('express');
 const app = express();
 
-const requestService = require('./src/request-service')
 const scrappingService = require('./src/scrapping-service')
 
-app.get('/', function (req, res) {
-
-    // requestService.getIdAcestreamByIdCanal(13)
-    //     .then(
-    //         resp => {
-    //             res.send(resp);
-    //         }
-    //     )
-
+app.get('/linkotes-scrap', function (req, res) {
     scrappingService.getAcestreamLinks().then(
-
         resp => res.send(resp)
     )
 
