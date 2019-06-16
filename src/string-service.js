@@ -1,6 +1,7 @@
 const requestService = require('./request-service')
 
 const getCanalesWithoutId = (trtext) => {
+    trtext = trtext.replace('  ', ' ');
 
     const parseCanales = (w31, w32) => trtext
         .substring(
@@ -36,9 +37,6 @@ const getCanalesWithoutId = (trtext) => {
                         .map(
                             avId => Number(avId.substring(2))
                         )
-                        // .map(
-                        //     id => requestService.getIdAcestreamByIdCanal(id)
-                        // )
                 
             })
         )

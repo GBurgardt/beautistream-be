@@ -12,7 +12,9 @@ const getIdAcestreamByIdCanal = (idCanal) =>
             id: idCanal,
             nocatxe: 0
         },
-        headers: {}
+        headers: {
+            'Referer': 'https://linkotes.com/arenavision/'
+        }
     })
         .catch(
             err => {
@@ -22,7 +24,6 @@ const getIdAcestreamByIdCanal = (idCanal) =>
         )
 
 const getIdAcestreamByArrayOfIdCanal = (arrayIds) => {
-    
 
     return Promise.all(
         arrayIds.map(
@@ -37,8 +38,6 @@ const getIdAcestreamByArrayOfIdCanal = (arrayIds) => {
                 }
             )
     )
-
-    // return null;
 }
 
 exports.getIdAcestreamByIdCanal = getIdAcestreamByIdCanal
