@@ -12,6 +12,21 @@ app.get('/linkotes-scrap', function (req, res) {
 
 });
 
-app.listen(3000, function () {
-    console.log('On in port: 3000');
-});
+
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
+
+var options = {
+    key: fs.readFileSync(__dirname + '/key.pem'),
+    cert: fs.readFileSync(__dirname + '/cert.pem')
+    // key: fs.readFileSync('key.pem'),
+    // cert: fs.readFileSync('cert.pem')
+}
+
+http.createServer(app).listen(3000);
+https.createServer(options, app).listen(443);
+
+// app.listen(3000, function () {
+//     console.log('On in port: 3000');
+// });
